@@ -6,22 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<title></title>
 		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-		<script type="text/javascript">
-//			//通过config接口注入权限验证配置
-//			wx.config({
-//				debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-//				appId: 'wx8e34afcb70db689f', // 必填，公众号的唯一标识
-//				timestamp: '<?php echo time();?>', // 必填，生成签名的时间戳
-//				nonceStr: '<?php echo $nonceStr;?>', // 必填，生成签名的随机串
-//				signature: '<?php echo $signature;?>', // 必填，签名
-//				jsApiList: [] // 必填，需要使用的JS接口列表
-//			});
-			//通过ready接口处理成功验证
-			wx.ready(function() {
-				// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后
-			});
-			wx.hideOptionMenu();
-		</script>
+		<link href="//cdn.bootcss.com/jquery-mobile/1.4.5/jquery.mobile.css" rel="stylesheet">
+		<script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
 		<style>
 			.img_mj {
 				height: 70px;
@@ -29,8 +17,20 @@
 			
 			.img_mj_s {
 				height: 30px;
+				border:2px solid; border-color: #FFFFFF;
 			}
+			
+			.img_mj_s_select{
+				border:2px solid; border-color: #22FF22;
+			}
+			
+			
 		</style>
+
+	</head>
+
+	<body>
+
 		<div>
 			<img src="img/tiao_1.png" class="img_mj" />
 			<img src="img/tiao_2.png" class="img_mj" />
@@ -48,9 +48,9 @@
 			<img src="img/tiao_7.png" class="img_mj" />
 			<img src="img/tiao_8.png" class="img_mj" />
 		</div>
-		<button>发牌</button>
+		<a class="ui-btn"> 发牌</a>
 
-		<button>确认</button>
+		<a class="ui-btn">确认</a>
 		<div>
 			<div>
 				<img src="img/tiao_1.png" class="img_mj_s" />
@@ -65,9 +65,30 @@
 				<img src="img/tiao_8.png" class="img_mj_s" />
 				<img src="img/tiao_9.png" class="img_mj_s" /></div>
 			<div>
-	</head>
 
-	<body>
 	</body>
+
+	<script>
+		$(document).ready(function() {
+			console.debug("ready");
+
+		});
+
+		$(".img_mj_s").click(function() {
+			$(this).toggleClass("img_mj_s_select");
+			
+		});
+		
+		var current=[];
+		var current_rel=[];
+		
+		var randomMajiang=function(){
+			
+		}
+		
+		var judge=function(){
+			
+		}
+	</script>
 
 </html>
