@@ -100,14 +100,14 @@ function make_ticket($appId,$appsecret)
 	 
 			wx.ready(function() {
 				var shareData = {
-					title: '我要胡！',
+					title: '我要胡!!!!!',
 					desc: '答对了***题，看看你能超过我吗？',
 					link: 'http://rubbyjiang.daoapp.io/',
 					imgUrl: 'http://baidu.com/logo.jpg'
 				};
 				wx.onMenuShareAppMessage(shareData);
 				wx.onMenuShareTimeline(shareData);
-				alert(res.errMsg+" appId:"+'<?=$appId?>'+"  "+'<?=$nonceStr?>'+"  "+'<?=$signature?>');
+				alert(" appId:"+'<?=$appId?>'+"  "+'<?=$nonceStr?>'+"  "+'<?=$signature?>');
 			});
 			wx.error(function(res) {
 				alert(res.errMsg+"  appId:"+'<?=$appId?>'+"  "+'<?=$nonceStr?>'+"  "+'<?=$signature?>');
