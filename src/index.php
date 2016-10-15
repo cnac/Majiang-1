@@ -4,7 +4,7 @@ $appsecret = 'a9a38c91aa3bb4817a21569a8c8ae662';
 $timestamp = time();
 $jsapi_ticket = make_ticket($appId,$appsecret);
 $nonceStr = make_nonceStr();
-$url = 'http://rubbyjiang.daoapp.io/';
+$url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $signature = make_signature($nonceStr,$timestamp,$jsapi_ticket,$url);
 function make_nonceStr()
 {
