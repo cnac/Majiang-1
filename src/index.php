@@ -4,12 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-		<title></title>
+		<title>我要胡！</title>
 		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-		<link href="//cdn.bootcss.com/jquery-mobile/1.4.5/jquery.mobile.css" rel="stylesheet">
 		<script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
 		<style>
 			.img_mj {
 				height: 70px;
@@ -17,20 +14,54 @@
 			
 			.img_mj_s {
 				height: 28px;
-				border: 1px solid;
-				border-color: #FFFFFF;
+				/*				border: 1px solid;
+*/
+				/*				border-color: #FFFFFF;
+*/
 			}
 			
 			.img_mj_s_select {
 				border: 2px solid;
 				border-color: #22FF22;
 			}
+			
+			body {
+				padding: 4px;
+				background: radial-gradient(circle, #6A8472, #32463D);
+				background: -ms-radial-gradient(circle, #6A8472, #32463D);
+				background: -webkit-linear-gradient(circle, #6A8472, #32463D);
+				background: -moz-linear-gradient(circle, #6A8472, #32463D);
+			}
+			
+			.a_demo_one {
+				background-color: #ba2323;
+				padding: 10px;
+				position: relative;
+				font-family: 'Open Sans', sans-serif;
+				font-size: 15px;
+				text-decoration: none;
+				color: #fff;
+				border: solid 1px #831212;
+				background-image: linear-gradient(bottom, rgb(171, 27, 27) 0%, rgb(212, 51, 51) 100%);
+				border-radius: 5px;
+			}
+			
+			.a_demo_one:active {
+				padding-bottom: 9px;
+				padding-left: 10px;
+				padding-right: 10px;
+				padding-top: 11px;
+				top: 1px;
+				background-image: linear-gradient(bottom, rgb(171, 27, 27) 100%, rgb(212, 51, 51) 0%);
+			}
+			.btn_ctl{
+				margin-top: 10px;
+			}
 		</style>
 
 	</head>
 
 	<body>
-
 		<div>
 			<img id="pai_1" src="img/11.png" class="img_mj" />
 			<img id="pai_2" src="img/12.png" class="img_mj" />
@@ -48,26 +79,24 @@
 			<img id="pai_12" src="img/17.png" class="img_mj" />
 			<img id="pai_13" src="img/18.png" class="img_mj" />
 		</div>
-		<a class="ui-btn" id="btn_refresh"> 发牌</a>
-
-		<a class="ui-btn" id="btn_ok">确认</a>
+		<!--		<a class="ui-btn" id="btn_refresh"> 发牌</a>-->
 		<div>
 			<div style="overflow-x:auto">
-				<img num="11"  src="img/11.png" class="img_mj_s" />
-				<img num="12"  src="img/12.png" class="img_mj_s" />
-				<img num="13"  src="img/13.png" class="img_mj_s" />
-				<img num="14"  src="img/14.png" class="img_mj_s" />
-				<img num="15"  src="img/15.png" class="img_mj_s" />
-				<img num="16"  src="img/16.png" class="img_mj_s" />
-				<img num="17"  src="img/17.png" class="img_mj_s" />
-				<img num="18"  src="img/18.png" class="img_mj_s" />
-				<img num="19"  src="img/19.png" class="img_mj_s" />
+				<img num="11" src="img/11.png" class="img_mj_s" />
+				<img num="12" src="img/12.png" class="img_mj_s" />
+				<img num="13" src="img/13.png" class="img_mj_s" />
+				<img num="14" src="img/14.png" class="img_mj_s" />
+				<img num="15" src="img/15.png" class="img_mj_s" />
+				<img num="16" src="img/16.png" class="img_mj_s" />
+				<img num="17" src="img/17.png" class="img_mj_s" />
+				<img num="18" src="img/18.png" class="img_mj_s" />
+				<img num="19" src="img/19.png" class="img_mj_s" />
 			</div>
 			<div>
 				<img num="21" src="img/21.png" class="img_mj_s" />
 				<img num="22" src="img/22.png" class="img_mj_s" />
-				<img num="23"  src="img/23.png" class="img_mj_s" />
-				<img num="24"  src="img/24.png" class="img_mj_s" />
+				<img num="23" src="img/23.png" class="img_mj_s" />
+				<img num="24" src="img/24.png" class="img_mj_s" />
 				<img num="25" src="img/25.png" class="img_mj_s" />
 				<img num="26" src="img/26.png" class="img_mj_s" />
 				<img num="27" src="img/27.png" class="img_mj_s" />
@@ -86,10 +115,24 @@
 				<img num="39" src="img/39.png" class="img_mj_s" />
 			</div>
 		</div>
+		<div class="btn_ctl">
+			<a  class="a_demo_one" id="btn_share">分享</a>
+			<a  class="a_demo_one" id="btn_help">帮助</a>
+			<a  class="a_demo_one" id="btn_ok">胡牌</a>
+
+		</div>
 
 	</body>
 
 	<script>
+		var current_level = 0;
+		var current_rel = [];
+		var PAI = [11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 35, 36, 37, 38, 39];
+
+		var current_color = [];
+		var current_rel = [];
+		var life = 3;
+
 		$(document).ready(function() {
 			console.debug("ready");
 			randomMajiang(3);
@@ -99,59 +142,70 @@
 			$(this).toggleClass("img_mj_s_select");
 		});
 
-
 		$("#btn_refresh").click(function() {
-			var id = Math.floor(Math.random() * 333) % 10;
-			if(id < 6)
-				randomMajiang(1);
-			else if(id < 8)
-				randomMajiang(2);
-			else
-				randomMajiang(3);
 
-			$(".img_mj_s").removeClass("img_mj_s_select");
 		});
 
 		$("#btn_ok").click(function() {
-			var user_rel=[];
-			$(".img_mj_s").each(function(){
-				if($(this).hasClass("img_mj_s_select")){
+			var user_rel = [];
+			$(".img_mj_s").each(function() {
+				if($(this).hasClass("img_mj_s_select")) {
 					console.info($(this).attr("num"));
 					user_rel.push($(this).attr("num"));
-					
+
 				}
 			});
 			user_rel.sort();
-			var is_correct=1;
-			if(user_rel.length!=current_rel.length){
+			var is_correct = 1;
+			if(user_rel.length != current_rel.length) {
 				console.info("error");
-				is_correct=0;
-			}else{
-				for(var i=0;i<user_rel.length;i++){
-					if(user_rel[i]!=current_rel[i]){
-						is_correct=0;
+				is_correct = 0;
+			} else {
+				for(var i = 0; i < user_rel.length; i++) {
+					if(user_rel[i] != current_rel[i]) {
+						is_correct = 0;
 					}
 				}
 			}
-			if(is_correct==0){
+			if(is_correct == 0) {
 				console.info("error");
-				alert("错了");
-			}else{
+				life--;
+				if(life == 0) {
+					alert("游戏结束！您答对了" + current_level + "题");
+					init();
+				} else {
+					alert("您还有" + life + "次机会，加油哦！");
+				}
+
+			} else {
 				console.info("success");
+				current_level++;
+				refesh();
 				alert("正确");
 			}
 
 		});
 
-		var current_level = 0;
-		var current_rel = [];
-		var PAI = [11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 35, 36, 37, 38, 39];
+		var init = function() {
+			life = 3;
+			current_level = 1;
+			refesh();
+		}
 
-		var current_color = [];
-		var current_rel=[];
+		var refesh = function() {
+			if(current_level < 2) {
+				randomMajiang(3);
+			} else if(current_level < 4) {
+				randomMajiang(2);
+			} else {
+				randomMajiang(1);
+			}
+
+			$(".img_mj_s").removeClass("img_mj_s_select");
+		}
 
 		var randomMajiang = function(level) {
-			current_rel=[];
+			current_rel = [];
 			var offset = Math.floor(Math.random() * 333) % 3 * 9;
 			var src_list = [];
 			for(var i = 1; i <= level; i++) {
@@ -181,17 +235,14 @@
 			}
 			console.log("pai_list");
 			console.log(pai_list.sort());
-			if(pai_list.length<14)
-			{
+			if(pai_list.length < 14) {
 				console.error(pai_list);
 				return;
 			}
 
-
 			var can_hu_idx = Math.floor(Math.random() * 100) % pai_list.length;
 			var can_hu = pai_list[can_hu_idx];
 			pai_list.splice(can_hu_idx, 1);
-			
 
 			//step 3 redraw
 			createPic(pai_list);
@@ -208,9 +259,9 @@
 			var hu_list = findHuList(pai_list, left_list);
 			hu_list.push(can_hu);
 			hu_list.sort();
-			console.log("hu_list  " +hu_list);
+			console.log("hu_list  " + hu_list);
 			printPai(hu_list);
-			current_rel=hu_list;
+			current_rel = hu_list;
 		}
 
 		var findThree = function(src_list) {
@@ -301,10 +352,8 @@
 				if(pai_list[i] == pai_list[i + 1]) {
 					var temp_pai = pai_list[i];
 					var temp_list = copy_list(pai_list);
-
 					temp_list.splice(temp_list.indexOf(temp_pai), 2);
-
-					if( judgeThree(temp_list)>0)
+					if(judgeThree(temp_list) > 0)
 						return 1;
 				}
 			}
@@ -312,18 +361,18 @@
 		}
 
 		var judgeThree = function(pai_list) {
-//			console.log(pai_list);
-			var judge_list=[];
-			if(pai_list.length%3!=0){
+			//			console.log(pai_list);
+			var judge_list = [];
+			if(pai_list.length % 3 != 0) {
 				console.error(pai_list);
 				return 0;
 			}
-			
-			if(pai_list!=null&&pai_list.length == 0) {
-//				if(pai_list[0] == pai_list[1] == pai_list[2])
-//					return 1
-//				if(pai_list[0]+2 == pai_list[1]+1 == pai_list[0])
-//					return 1
+
+			if(pai_list != null && pai_list.length == 0) {
+				//				if(pai_list[0] == pai_list[1] == pai_list[2])
+				//					return 1
+				//				if(pai_list[0]+2 == pai_list[1]+1 == pai_list[0])
+				//					return 1
 				return 1;
 			}
 			var first = pai_list[0];
@@ -368,11 +417,11 @@
 			console.log("HUHUHUHUHUHU");
 			console.log(pai_names);
 		}
-		
-		var copy_list=function(list){
-			var new_list=[];
-			$.each(list, function(i,val) {
-				if(val!=undefined)
+
+		var copy_list = function(list) {
+			var new_list = [];
+			$.each(list, function(i, val) {
+				if(val != undefined)
 					new_list.push(val);
 			});
 			return new_list;
