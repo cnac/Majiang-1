@@ -16,7 +16,6 @@
 		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
-
 		<style>
 			.img_mj {
 				height: 70px;
@@ -198,7 +197,7 @@
 	</body>
 
 	<script>
-		var max=0;
+		var max = 0;
 		var current_level = 0;
 		var current_rel = [];
 		var PAI = [11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 35, 36, 37, 38, 39];
@@ -258,10 +257,10 @@
 				console.info("error");
 				life--;
 				if(life == 0) {
-					if(current_level>max){
-						max=current_level;
+					if(current_level > max) {
+						max = current_level;
 					}
-					$(document).attr("title","我最高胡了" + max + "次！看看你能超过我吗?");
+					$(document).attr("title", "我最高胡了" + max + "次！看看你能超过我吗?");
 					$("#msg_content").html("游戏结束！您答对了" + current_level + "题！点击右上角分享下吧！");
 					$('#msg_modal').modal('show');
 					init();
@@ -277,6 +276,10 @@
 				$("#ok_num").html(current_level);
 				$("#msg_content").html("您答对了！");
 				$('#msg_modal').modal('show');
+				if(current_level > max) {
+					max = current_level;
+				}
+				$(document).attr("title", "我最高胡了" + max + "次！看看你能超过我吗?");
 			}
 
 		});
@@ -524,4 +527,5 @@
 			return new_list;
 		}
 	</script>
+
 </html>
