@@ -53,39 +53,37 @@
 		<a class="ui-btn" id="btn_ok">确认</a>
 		<div>
 			<div style="overflow-x:auto">
-				<img src="img/11.png" class="img_mj_s" />
-				<img src="img/12.png" class="img_mj_s" />
-				<img src="img/13.png" class="img_mj_s" />
-				<img src="img/14.png" class="img_mj_s" />
-				<img src="img/15.png" class="img_mj_s" />
-				<img src="img/16.png" class="img_mj_s" />
-				<img src="img/17.png" class="img_mj_s" />
-				<img src="img/18.png" class="img_mj_s" />
-				<img src="img/19.png" class="img_mj_s" />
+				<img num="11"  src="img/11.png" class="img_mj_s" />
+				<img num="12"  src="img/12.png" class="img_mj_s" />
+				<img num="13"  src="img/13.png" class="img_mj_s" />
+				<img num="14"  src="img/14.png" class="img_mj_s" />
+				<img num="15"  src="img/15.png" class="img_mj_s" />
+				<img num="16"  src="img/16.png" class="img_mj_s" />
+				<img num="17"  src="img/17.png" class="img_mj_s" />
+				<img num="18"  src="img/18.png" class="img_mj_s" />
+				<img num="19"  src="img/19.png" class="img_mj_s" />
 			</div>
 			<div>
-				<img src="img/21.png" class="img_mj_s" />
-				<img src="img/22.png" class="img_mj_s" />
-				<img src="img/23.png" class="img_mj_s" />
-				<img src="img/24.png" class="img_mj_s" />
-				<img src="img/25.png" class="img_mj_s" />
-				<img src="img/26.png" class="img_mj_s" />
-				<img src="img/27.png" class="img_mj_s" />
-				<img src="img/28.png" class="img_mj_s" />
-				<img src="img/29.png" class="img_mj_s" />
+				<img num="21" src="img/21.png" class="img_mj_s" />
+				<img num="22" src="img/22.png" class="img_mj_s" />
+				<img num="23"  src="img/23.png" class="img_mj_s" />
+				<img num="24"  src="img/24.png" class="img_mj_s" />
+				<img num="25" src="img/25.png" class="img_mj_s" />
+				<img num="26" src="img/26.png" class="img_mj_s" />
+				<img num="27" src="img/27.png" class="img_mj_s" />
+				<img num="28" src="img/28.png" class="img_mj_s" />
+				<img num="29" src="img/29.png" class="img_mj_s" />
 			</div>
 			<div>
-				<img src="img/31.png" class="img_mj_s" />
-				<img src="img/32.png" class="img_mj_s" />
-				<img src="img/33.png" class="img_mj_s" />
-				<img src="img/34.png" class="img_mj_s" />
-				<img src="img/35.png" class="img_mj_s" />
-
-				<img src="img/36.png" class="img_mj_s" />
-				<img src="img/37.png" class="img_mj_s" />
-
-				<img src="img/38.png" class="img_mj_s" />
-				<img src="img/39.png" class="img_mj_s" />
+				<img num="31" src="img/31.png" class="img_mj_s" />
+				<img num="32" src="img/32.png" class="img_mj_s" />
+				<img num="33" src="img/33.png" class="img_mj_s" />
+				<img num="34" src="img/34.png" class="img_mj_s" />
+				<img num="35" src="img/35.png" class="img_mj_s" />
+				<img num="36" src="img/36.png" class="img_mj_s" />
+				<img num="37" src="img/37.png" class="img_mj_s" />
+				<img num="38" src="img/38.png" class="img_mj_s" />
+				<img num="39" src="img/39.png" class="img_mj_s" />
 			</div>
 		</div>
 
@@ -94,31 +92,66 @@
 	<script>
 		$(document).ready(function() {
 			console.debug("ready");
-
+			randomMajiang(3);
 		});
 
 		$(".img_mj_s").click(function() {
 			$(this).toggleClass("img_mj_s_select");
 		});
 
+
 		$("#btn_refresh").click(function() {
 			var id = Math.floor(Math.random() * 333) % 10;
 			if(id < 6)
 				randomMajiang(1);
 			else if(id < 8)
-				randomMajiang(1);
+				randomMajiang(2);
 			else
-				randomMajiang(1);
+				randomMajiang(3);
+
+			$(".img_mj_s").removeClass("img_mj_s_select");
+		});
+
+		$("#btn_ok").click(function() {
+			var user_rel=[];
+			$(".img_mj_s").each(function(){
+				if($(this).hasClass("img_mj_s_select")){
+					console.info($(this).attr("num"));
+					user_rel.push($(this).attr("num"));
+					
+				}
+			});
+			user_rel.sort();
+			var is_correct=1;
+			if(user_rel.length!=current_rel.length){
+				console.info("error");
+				is_correct=0;
+			}else{
+				for(var i=0;i<user_rel.length;i++){
+					if(user_rel[i]!=current_rel[i]){
+						is_correct=0;
+					}
+				}
+			}
+			if(is_correct==0){
+				console.info("error");
+				alert("错了");
+			}else{
+				console.info("success");
+				alert("正确");
+			}
 
 		});
 
-		var current = [];
+		var current_level = 0;
 		var current_rel = [];
 		var PAI = [11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 35, 36, 37, 38, 39];
 
 		var current_color = [];
+		var current_rel=[];
 
 		var randomMajiang = function(level) {
+			current_rel=[];
 			var offset = Math.floor(Math.random() * 333) % 3 * 9;
 			var src_list = [];
 			for(var i = 1; i <= level; i++) {
@@ -177,6 +210,7 @@
 			hu_list.sort();
 			console.log("hu_list  " +hu_list);
 			printPai(hu_list);
+			current_rel=hu_list;
 		}
 
 		var findThree = function(src_list) {
@@ -278,7 +312,7 @@
 		}
 
 		var judgeThree = function(pai_list) {
-			console.log(pai_list);
+//			console.log(pai_list);
 			var judge_list=[];
 			if(pai_list.length%3!=0){
 				console.error(pai_list);
@@ -290,7 +324,7 @@
 //					return 1
 //				if(pai_list[0]+2 == pai_list[1]+1 == pai_list[0])
 //					return 1
-				return 0;
+				return 1;
 			}
 			var first = pai_list[0];
 			if(pai_list.indexOf(first + 1) > 0 && pai_list.indexOf(first + 2) > 0) {
@@ -315,17 +349,17 @@
 		var printPai = function(list) {
 			var pai_names = [];
 			$.each(list, function(idx, item) {
-				var unit = item / 10;
+				var unit = Math.floor(item / 10);
 				var num = item % 10;
 				var name = "" + num;
 				switch(unit) {
-					case 0:
+					case 1:
 						name += "S";
 						break;
-					case 1:
+					case 2:
 						name += "W";
 						break;
-					case 2:
+					case 3:
 						name += "T";
 						break;
 				}
