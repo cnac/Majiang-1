@@ -17,14 +17,14 @@
 			
 			.img_mj_s {
 				height: 30px;
-				border:2px solid; border-color: #FFFFFF;
+				border: 2px solid;
+				border-color: #FFFFFF;
 			}
 			
-			.img_mj_s_select{
-				border:2px solid; border-color: #22FF22;
+			.img_mj_s_select {
+				border: 2px solid;
+				border-color: #22FF22;
 			}
-			
-			
 		</style>
 
 	</head>
@@ -76,18 +76,49 @@
 
 		$(".img_mj_s").click(function() {
 			$(this).toggleClass("img_mj_s_select");
-			
+			randomMajiang(1);
+
 		});
-		
-		var current=[];
-		var current_rel=[];
-		
-		var randomMajiang=function(){
+
+		var current = [];
+		var current_rel = [];
+		var PAI = [11, 12, 13, 14, 15, 16, 17, 18, 19,21, 22, 23, 24, 25, 26, 27, 28,29,31, 32, 33, 34, 35, 36, 37, 38, 39];
+
+
+		var randomMajiang = function( level) {
+			var color=1;
+			var offset=Math.floor(Math.random()*333)%3*9;
+			var pai_map = {};
+			//step 1 create 2
+			var mod=9*(level);
+
+			var rd = Math.floor(Math.random() * 333) % mod + offset;
+
+			console.log(rd);
+
+			//step2 create 3
+			 rd = Math.floor(Math.random() * 333) % mod + offset;
+			console.log(rd);
+
+			 rd = Math.floor(Math.random() * 333) % mod + offset;
+			 			console.log(rd);
+
+			 rd = Math.floor(Math.random() * 333) % mod + offset;
+			 			console.log(rd);
+
+			 rd = Math.floor(Math.random() * 333) % mod + offset;
+			console.log(rd);
+
+
+			
+		}
+
+		var createPic=function(){
 			
 		}
 		
-		var judge=function(){
-			
+		var judge = function() {
+
 		}
 	</script>
 
