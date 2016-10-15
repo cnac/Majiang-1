@@ -86,7 +86,7 @@ function make_ticket($appId,$appsecret)
 		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 		<script>
 			wx.config({
-				debug: true,
+				debug: false,
 				appId: '<?=$appId?>',
 				timestamp: <?=$timestamp?>,
 				nonceStr: '<?=$nonceStr?>',
@@ -107,7 +107,7 @@ function make_ticket($appId,$appsecret)
 				};
 				wx.onMenuShareAppMessage(shareData);
 				wx.onMenuShareTimeline(shareData);
-				alert(" appId:"+'<?=$appId?>'+"  "+'<?=$nonceStr?>'+"  "+'<?=$signature?>');
+				console.info("ok");
 			});
 			wx.error(function(res) {
 				alert(res.errMsg+"  appId:"+'<?=$appId?>'+"  "+'<?=$nonceStr?>'+"  "+'<?=$signature?>');
