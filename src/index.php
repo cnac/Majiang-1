@@ -1,3 +1,8 @@
+<?php
+require_once "jssdk.php";
+$jssdk = new JSSDK("wx8e34afcb70db689f", "a9a38c91aa3bb4817a21569a8c8ae662");
+$signPackage = $jssdk->GetSignPackage();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -14,6 +19,38 @@
 
 		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<script>
+			wx.config({
+				debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。移动端会通过弹窗来提示相关信息。如果分享信息配置不正确的话，可以开了看对应报错信息
+				appId: '<?php echo $signPackage["appId"];?>',
+				timestamp: '<?php echo $signPackage["timestamp"];?>',
+				nonceStr: '<?php echo $signPackage["nonceStr"];?>',
+				signature: '<?php echo $signPackage["signature"];?>',
+				jsApiList: [ //需要使用的JS接口列表,分享默认这几个，如果有其他的功能比如图片上传之类的，需要添加对应api进来
+					'checkJsApi',
+					'onMenuShareTimeline', //
+					'onMenuShareAppMessage',
+					'onMenuShareQQ',
+					'onMenuShareWeibo'
+				]
+			});
+			window.share_config = {
+				"share": {
+					"imgUrl": "http://www.yourwebsite.com/share.png", //分享图，默认当相对路径处理，所以使用绝对路径的的话，“http://”协议前缀必须在。
+					"desc": "看看你能胡多少！", //摘要,如果分享到朋友圈的话，不显示摘要。
+					"title": '我要胡！', //分享卡片标题
+					"link": window.location.href, //分享出去后的链接，这里可以将链接设置为另一个页面。
+					"success": function() { //分享成功后的回调函数
+					},
+					'cancel': function() {
+					}
+				}
+			};
+			wx.ready(function () {
+
+ 
+		});
+		</script>
 		<style>
 			.img_mj {
 				height: 70px;
@@ -208,6 +245,26 @@
 
 		});
 
+		$("#btn_share").click(function() {
+
+        wx.onMenuShareTimeline({
+
+          trigger: function (res) {
+            // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+            // alert('用户点击分享到朋友圈');
+          },
+          success: function (res) {
+            // alert('已分享');
+          },
+          cancel: function (res) {
+            // alert('已取消');
+          },
+          fail: function (res) {
+            // alert(JSON.stringify(res));
+          }
+        });
+		});
+
 		$("#btn_help").click(function() {
 			$('#help_modal').modal('show');
 
@@ -335,8 +392,8 @@
 			var hu_list = findHuList(pai_list, left_list);
 			hu_list.push(can_hu);
 			hu_list.sort();
-//			console.log("hu_list  " + hu_list);
-//			printPai(hu_list);
+			//			console.log("hu_list  " + hu_list);
+			//			printPai(hu_list);
 			current_rel = hu_list;
 		}
 
