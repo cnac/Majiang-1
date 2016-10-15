@@ -84,36 +84,7 @@ function make_ticket($appId,$appsecret)
 
 		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-		<script>
-			wx.config({
-				debug: false,
-				appId: '<?=$appId?>',
-				timestamp: <?=$timestamp?>,
-				nonceStr: '<?=$nonceStr?>',
-				signature: '<?=$signature?>',
-				jsApiList: [
-					'checkJsApi',
-					'onMenuShareTimeline',
-					'onMenuShareAppMessage'
-				]
-			});
-	 
-			wx.ready(function() {
-				var shareData = {
-					title: '我要胡!!!!!',
-					desc: '答对了***题，看看你能超过我吗？',
-					link: 'http://rubbyjiang.daoapp.io/',
-					imgUrl: 'http://baidu.com/logo.jpg'
-				};
-				wx.onMenuShareAppMessage(shareData);
-				wx.onMenuShareTimeline(shareData);
-				console.info("ok");
-			});
-			wx.error(function(res) {
-				alert(res.errMsg+"  appId:"+'<?=$appId?>'+"  "+'<?=$nonceStr?>'+"  "+'<?=$signature?>');
 
-			});
-		</script>
 
 		<style>
 			.img_mj {
@@ -632,5 +603,34 @@ function make_ticket($appId,$appsecret)
 			return new_list;
 		}
 	</script>
+	<script>
+		wx.config({
+			debug: false,
+			appId: '<?=$appId?>',
+			timestamp: <?=$timestamp?>,
+			nonceStr: '<?=$nonceStr?>',
+			signature: '<?=$signature?>',
+			jsApiList: [
+				'checkJsApi',
+				'onMenuShareTimeline',
+				'onMenuShareAppMessage'
+			]
+		});
+ 
+		wx.ready(function() {
+			var shareData = {
+				title: '我要胡!!!!!',
+				desc: '答对了***题，看看你能超过我吗？',
+				link: 'http://rubbyjiang.daoapp.io/',
+				imgUrl: 'http://baidu.com/logo.jpg'
+			};
+			wx.onMenuShareAppMessage(shareData);
+			wx.onMenuShareTimeline(shareData);
+			console.info("ok");
+		});
+		wx.error(function(res) {
+			alert(res.errMsg+"  appId:"+'<?=$appId?>'+"  "+'<?=$nonceStr?>'+"  "+'<?=$signature?>');
 
+		});
+	</script>
 </html>
