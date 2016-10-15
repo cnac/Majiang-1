@@ -1,4 +1,4 @@
-<?php
+<!--<?php
 $appId = 'wx8e34afcb70db689f';
 $appsecret = 'a9a38c91aa3bb4817a21569a8c8ae662';
 $timestamp = time();
@@ -67,7 +67,7 @@ function make_ticket($appId,$appsecret)
 	}
 	return $ticket;
 }
-?>
+?> -->
 <!DOCTYPE html>
 <html>
 
@@ -267,6 +267,7 @@ function make_ticket($appId,$appsecret)
 	</body>
 
 	<script>
+		var max=0;
 		var current_level = 0;
 		var current_rel = [];
 		var PAI = [11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 35, 36, 37, 38, 39];
@@ -290,22 +291,6 @@ function make_ticket($appId,$appsecret)
 
 		$("#btn_share").click(function() {
 
-			wx.onMenuShareTimeline({
-
-				trigger: function(res) {
-					// 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
-					// alert('用户点击分享到朋友圈');
-				},
-				success: function(res) {
-					// alert('已分享');
-				},
-				cancel: function(res) {
-					// alert('已取消');
-				},
-				fail: function(res) {
-					// alert(JSON.stringify(res));
-				}
-			});
 		});
 
 		$("#btn_help").click(function() {
@@ -342,7 +327,11 @@ function make_ticket($appId,$appsecret)
 				console.info("error");
 				life--;
 				if(life == 0) {
-					$("#msg_content").html("游戏结束！您答对了" + current_level + "题！");
+					if(current_level>max){
+						max=current_level;
+					}
+					$(document).attr("title","我最高胡了" + max + "次！看看你能超过我吗?");
+					$("#msg_content").html("游戏结束！您答对了" + current_level + "题！点击右上角分享下吧！");
 					$('#msg_modal').modal('show');
 					init();
 				} else {
@@ -362,6 +351,7 @@ function make_ticket($appId,$appsecret)
 		});
 
 		var init = function() {
+			// $(document).attr("title","我要胡！");
 			life = 3;
 			current_level = 1;
 			$("#ok_num").html(0);
@@ -603,7 +593,7 @@ function make_ticket($appId,$appsecret)
 			return new_list;
 		}
 	</script>
-	<script>
+	<!--<script>
 		wx.config({
 			debug: false,
 			appId: '<?=$appId?>',
@@ -632,5 +622,5 @@ function make_ticket($appId,$appsecret)
 			alert(res.errMsg+"  appId:"+'<?=$appId?>'+"  "+'<?=$nonceStr?>'+"  "+'<?=$signature?>');
 
 		});
-	</script>
+	</script>-->
 </html>
