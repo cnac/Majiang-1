@@ -88,6 +88,9 @@
 	</head>
 
 	<body>
+		<div style='display:none;'>
+<img src='img/title.png' />
+</div>
 		<div class="containe">
 			<div class="row">
 				<img id="pai_1" src="img/11.png" class="img_mj" />
