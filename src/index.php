@@ -109,7 +109,7 @@ function make_ticket($appId,$appsecret)
 				wx.onMenuShareTimeline(shareData);
 			});
 			wx.error(function(res) {
-				alert(res.errMsg+" "+'<?=$appId?>');
+				alert(res.errMsg+" "+'<?=$appId?>'+"  "+'<?=$nonceStr?>'+"  "+'<?=$signature?>');
 
 			});
 		</script>
