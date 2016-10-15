@@ -86,43 +86,6 @@ function make_ticket($appId,$appsecret)
 		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 		<script>
 			wx.config({
-				debug: false,
-				appId: '<?php echo $signPackage["appId"];?>',
-				timestamp: <?php echo $signPackage["timestamp"];?>,
-				nonceStr: '<?php echo $signPackage["nonceStr"];?>',
-				signature: '<?php echo $signPackage["signature"];?>',
-				jsApiList: [
-					// 所有要调用的 API 都要加到这个列表中
-					'checkJsApi',
-					'onMenuShareTimeline',
-					'onMenuShareAppMessage'
-				]
-			});
-			wx.ready(function() {
-
-				wx.onMenuShareAppMessage({
-					title: '我要胡！',
-					desc: '答对了***题，看看你能超过我吗？',
-					link: 'http://rubbyjiang.daoapp.io/',
-					trigger: function(res) {
-						// 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
-						// alert('用户点击发送给朋友');
-					},
-					success: function(res) {
-						// alert('已分享');
-					},
-					cancel: function(res) {
-						// alert('已取消');
-					},
-					fail: function(res) {
-						// alert(JSON.stringify(res));
-					}
-				});
-
-			});
-		</script>
-		<script>
-			wx.config({
 				debug: true,
 				appId: '<?=$appId?>',
 				timestamp: <?=$timestamp?>,
@@ -136,9 +99,9 @@ function make_ticket($appId,$appsecret)
 			});
 			wx.ready(function() {
 				var shareData = {
-					title: '这里是分享标题',
-					desc: '这里是发送给好友的时候的简介',
-					link: 'http://baidu.com',
+					title: '我要胡！',
+					desc: '答对了***题，看看你能超过我吗？',
+					link: 'http://rubbyjiang.daoapp.io/',
 					imgUrl: 'http://baidu.com/logo.jpg'
 				};
 				wx.onMenuShareAppMessage(shareData);
