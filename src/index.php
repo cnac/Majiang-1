@@ -97,6 +97,7 @@ function make_ticket($appId,$appsecret)
 					'onMenuShareAppMessage'
 				]
 			});
+	 
 			wx.ready(function() {
 				var shareData = {
 					title: '我要胡！',
@@ -108,7 +109,8 @@ function make_ticket($appId,$appsecret)
 				wx.onMenuShareTimeline(shareData);
 			});
 			wx.error(function(res) {
-				alert(res.errMsg);
+				alert(res.errMsg+" "+'<?=$appId?>');
+
 			});
 		</script>
 
