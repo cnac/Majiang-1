@@ -6,18 +6,22 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<title>我要胡！</title>
 		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-		<script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 		<style>
 			.img_mj {
 				height: 70px;
+				padding: 1px;
 			}
 			
 			.img_mj_s {
-				height: 28px;
-				/*				border: 1px solid;
-*/
-				/*				border-color: #FFFFFF;
-*/
+				height: 30px;
 			}
 			
 			.img_mj_s_select {
@@ -26,6 +30,7 @@
 			}
 			
 			body {
+				text-align: center;
 				padding: 4px;
 				background: radial-gradient(circle, #6A8472, #32463D);
 				background: -ms-radial-gradient(circle, #6A8472, #32463D);
@@ -54,72 +59,129 @@
 				top: 1px;
 				background-image: linear-gradient(bottom, rgb(171, 27, 27) 100%, rgb(212, 51, 51) 0%);
 			}
-			.btn_ctl{
-				margin-top: 10px;
+			
+			.rel {
+				margin-top: 15px;
+				font-family: 'Open Sans', sans-serif;
+				font-size: 20px;
+				text-decoration: none;
+				text-align: center;
+				color: #fff;
+			}
+			
+			.pai_rel {
+				margin-top: 15px;
+			}
+			
+			.btn_ctl {
+				margin-top: 15px;
 			}
 		</style>
 
 	</head>
 
 	<body>
-		<div>
-			<img id="pai_1" src="img/11.png" class="img_mj" />
-			<img id="pai_2" src="img/12.png" class="img_mj" />
-			<img id="pai_3" src="img/13.png" class="img_mj" />
-			<img id="pai_4" src="img/12.png" class="img_mj" />
-			<img id="pai_5" src="img/13.png" class="img_mj" />
+		<div class="containe">
+			<div class="row">
+				<img id="pai_1" src="img/11.png" class="img_mj" />
+				<img id="pai_2" src="img/12.png" class="img_mj" />
+				<img id="pai_3" src="img/13.png" class="img_mj" />
+				<img id="pai_4" src="img/12.png" class="img_mj" />
+				<img id="pai_5" src="img/13.png" class="img_mj" />
 
-			<img id="pai_6" src="img/14.png" class="img_mj" />
-			<img id="pai_7" src="img/15.png" class="img_mj" />
-			<img id="pai_8" src="img/15.png" class="img_mj" />
+				<img id="pai_6" src="img/14.png" class="img_mj" />
+				<img id="pai_7" src="img/15.png" class="img_mj" />
+				<img id="pai_8" src="img/15.png" class="img_mj" />
 
-			<img id="pai_9" src="img/15.png" class="img_mj" />
-			<img id="pai_10" src="img/15.png" class="img_mj" />
-			<img id="pai_11" src="img/16.png" class="img_mj" />
-			<img id="pai_12" src="img/17.png" class="img_mj" />
-			<img id="pai_13" src="img/18.png" class="img_mj" />
+				<img id="pai_9" src="img/15.png" class="img_mj" />
+				<img id="pai_10" src="img/15.png" class="img_mj" />
+				<img id="pai_11" src="img/16.png" class="img_mj" />
+				<img id="pai_12" src="img/17.png" class="img_mj" />
+				<img id="pai_13" src="img/18.png" class="img_mj" />
+			</div>
+			<!--		<a class="ui-btn" id="btn_refresh"> 发牌</a>-->
+			<div class="row pai_rel">
+				<div>
+					<img num="11" src="img/11.png" class="img_mj_s" />
+					<img num="12" src="img/12.png" class="img_mj_s" />
+					<img num="13" src="img/13.png" class="img_mj_s" />
+					<img num="14" src="img/14.png" class="img_mj_s" />
+					<img num="15" src="img/15.png" class="img_mj_s" />
+					<img num="16" src="img/16.png" class="img_mj_s" />
+					<img num="17" src="img/17.png" class="img_mj_s" />
+					<img num="18" src="img/18.png" class="img_mj_s" />
+					<img num="19" src="img/19.png" class="img_mj_s" />
+				</div>
+				<div>
+					<img num="21" src="img/21.png" class="img_mj_s" />
+					<img num="22" src="img/22.png" class="img_mj_s" />
+					<img num="23" src="img/23.png" class="img_mj_s" />
+					<img num="24" src="img/24.png" class="img_mj_s" />
+					<img num="25" src="img/25.png" class="img_mj_s" />
+					<img num="26" src="img/26.png" class="img_mj_s" />
+					<img num="27" src="img/27.png" class="img_mj_s" />
+					<img num="28" src="img/28.png" class="img_mj_s" />
+					<img num="29" src="img/29.png" class="img_mj_s" />
+				</div>
+				<div>
+					<img num="31" src="img/31.png" class="img_mj_s" />
+					<img num="32" src="img/32.png" class="img_mj_s" />
+					<img num="33" src="img/33.png" class="img_mj_s" />
+					<img num="34" src="img/34.png" class="img_mj_s" />
+					<img num="35" src="img/35.png" class="img_mj_s" />
+					<img num="36" src="img/36.png" class="img_mj_s" />
+					<img num="37" src="img/37.png" class="img_mj_s" />
+					<img num="38" src="img/38.png" class="img_mj_s" />
+					<img num="39" src="img/39.png" class="img_mj_s" />
+				</div>
+			</div>
+			<div class="btn_ctl row">
+				<a class="a_demo_one" id="btn_share">分享</a>
+				<a class="a_demo_one" id="btn_help">帮助</a>
+				<a class="a_demo_one" id="btn_ok">胡牌</a>
+
+			</div>
+			<div class="rel row">
+				您已经答对<span id="ok_num">0</span>道题了！
+			</div>
 		</div>
-		<!--		<a class="ui-btn" id="btn_refresh"> 发牌</a>-->
-		<div>
-			<div style="overflow-x:auto">
-				<img num="11" src="img/11.png" class="img_mj_s" />
-				<img num="12" src="img/12.png" class="img_mj_s" />
-				<img num="13" src="img/13.png" class="img_mj_s" />
-				<img num="14" src="img/14.png" class="img_mj_s" />
-				<img num="15" src="img/15.png" class="img_mj_s" />
-				<img num="16" src="img/16.png" class="img_mj_s" />
-				<img num="17" src="img/17.png" class="img_mj_s" />
-				<img num="18" src="img/18.png" class="img_mj_s" />
-				<img num="19" src="img/19.png" class="img_mj_s" />
-			</div>
-			<div>
-				<img num="21" src="img/21.png" class="img_mj_s" />
-				<img num="22" src="img/22.png" class="img_mj_s" />
-				<img num="23" src="img/23.png" class="img_mj_s" />
-				<img num="24" src="img/24.png" class="img_mj_s" />
-				<img num="25" src="img/25.png" class="img_mj_s" />
-				<img num="26" src="img/26.png" class="img_mj_s" />
-				<img num="27" src="img/27.png" class="img_mj_s" />
-				<img num="28" src="img/28.png" class="img_mj_s" />
-				<img num="29" src="img/29.png" class="img_mj_s" />
-			</div>
-			<div>
-				<img num="31" src="img/31.png" class="img_mj_s" />
-				<img num="32" src="img/32.png" class="img_mj_s" />
-				<img num="33" src="img/33.png" class="img_mj_s" />
-				<img num="34" src="img/34.png" class="img_mj_s" />
-				<img num="35" src="img/35.png" class="img_mj_s" />
-				<img num="36" src="img/36.png" class="img_mj_s" />
-				<img num="37" src="img/37.png" class="img_mj_s" />
-				<img num="38" src="img/38.png" class="img_mj_s" />
-				<img num="39" src="img/39.png" class="img_mj_s" />
+
+		<div id="msg_modal" class="modal">
+			<div class="modal-dialog">
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="myModalLabel">我要胡！</h4>
+					</div>
+					<div class="modal-body">
+						<p id="msg_content"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="btn_ctl">
-			<a  class="a_demo_one" id="btn_share">分享</a>
-			<a  class="a_demo_one" id="btn_help">帮助</a>
-			<a  class="a_demo_one" id="btn_ok">胡牌</a>
 
+		<div id="help_modal" class="modal">
+			<div class="modal-dialog">
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="myModalLabel">我要胡！</h4>
+					</div>
+					<div class="modal-body" style="text-align: left;">
+						<p>1.胡牌规则：一个对子(AA)+N个三个连牌(ABC)或三个同样的牌(AAA). </p>
+						<p>2.有三次答错机会. </p>
+						<p>3.选择可能会胡的牌，点击胡牌提交结果.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+					</div>
+				</div>
+			</div>
 		</div>
 
 	</body>
@@ -146,6 +208,10 @@
 
 		});
 
+		$("#btn_help").click(function() {
+			$('#help_modal').modal('show');
+
+		});
 		$("#btn_ok").click(function() {
 			var user_rel = [];
 			$(".img_mj_s").each(function() {
@@ -155,6 +221,11 @@
 
 				}
 			});
+			if(user_rel.length == 0) {
+				$("#msg_content").html("您没选择能胡的牌！");
+				$('#msg_modal').modal('show');
+				return;
+			}
 			user_rel.sort();
 			var is_correct = 1;
 			if(user_rel.length != current_rel.length) {
@@ -171,17 +242,21 @@
 				console.info("error");
 				life--;
 				if(life == 0) {
-					alert("游戏结束！您答对了" + current_level + "题");
+					$("#msg_content").html("游戏结束！您答对了" + current_level + "题！");
+					$('#msg_modal').modal('show');
 					init();
 				} else {
-					alert("您还有" + life + "次机会，加油哦！");
+					$("#msg_content").html("可惜不对啊,您还有" + life + "次机会，加油哦！");
+					$('#msg_modal').modal('show');
 				}
 
 			} else {
 				console.info("success");
 				current_level++;
 				refesh();
-				alert("正确");
+				$("#ok_num").html(current_level);
+				$("#msg_content").html("您答对了！");
+				$('#msg_modal').modal('show');
 			}
 
 		});
@@ -189,6 +264,7 @@
 		var init = function() {
 			life = 3;
 			current_level = 1;
+			$("#ok_num").html(0);
 			refesh();
 		}
 
@@ -259,8 +335,8 @@
 			var hu_list = findHuList(pai_list, left_list);
 			hu_list.push(can_hu);
 			hu_list.sort();
-			console.log("hu_list  " + hu_list);
-			printPai(hu_list);
+//			console.log("hu_list  " + hu_list);
+//			printPai(hu_list);
 			current_rel = hu_list;
 		}
 
