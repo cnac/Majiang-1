@@ -107,10 +107,10 @@ function make_ticket($appId,$appsecret)
 				};
 				wx.onMenuShareAppMessage(shareData);
 				wx.onMenuShareTimeline(shareData);
-				alert(res.errMsg+" "+'<?=$appId?>'+"  "+'<?=$nonceStr?>'+"  "+'<?=$signature?>');
+				alert(res.errMsg+" appId:"+'<?=$appId?>'+"  "+'<?=$nonceStr?>'+"  "+'<?=$signature?>');
 			});
 			wx.error(function(res) {
-				alert(res.errMsg+" "+'<?=$appId?>'+"  "+'<?=$nonceStr?>'+"  "+'<?=$signature?>');
+				alert(res.errMsg+"  appId:"+'<?=$appId?>'+"  "+'<?=$nonceStr?>'+"  "+'<?=$signature?>');
 
 			});
 		</script>
