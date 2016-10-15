@@ -32,7 +32,7 @@ function make_signature($nonceStr,$timestamp,$jsapi_ticket,$url)
 function make_ticket($appId,$appsecret)
 {
 	// access_token 应该全局存储与更新，以下代码以写入到文件中做示例
-	$data = json_decode(file_get_contents("access_token.json"));
+	$data = json_decode(file_get_contents("./access_token.json"));
 	if ($data->expire_time < time()) {
 		$TOKEN_URL="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$appId."&secret=".$appsecret;
 		$json = file_get_contents($TOKEN_URL);
@@ -49,7 +49,7 @@ function make_ticket($appId,$appsecret)
 		$access_token = $data->access_token;
 	}
 	// jsapi_ticket 应该全局存储与更新，以下代码以写入到文件中做示例
-	$data = json_decode(file_get_contents("jsapi_ticket.json"));
+	$data = json_decode(file_get_contents("./jsapi_ticket.json"));
 	if ($data->expire_time < time()) {
 		$ticket_URL="https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=".$access_token."&type=jsapi";
 		$json = file_get_contents($ticket_URL);
