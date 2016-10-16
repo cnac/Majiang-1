@@ -77,11 +77,11 @@
 			}
 			
 			.pai_rel {
-				margin-top: 15px;
+				margin-top: 10px;
 			}
 			
 			.btn_ctl {
-				margin-top: 10px;
+				margin-top: 25px;
 			}
 		</style>
 
@@ -111,7 +111,7 @@
 				<img src="img/question.png" class="img_mj_q" />
 			</div>
 			<!--		<a class="ui-btn" id="btn_refresh"> 发牌</a>-->
-			<p style="color: white;margin-top: 3px;">在下方选择所有能胡的牌，都找出来才能正确哦。</p>
+			<p style="color: white;margin-top: 3px;">在下方选择所有能胡的牌，都找出来才算正确哦。</p>
 			<div class="row pai_rel">
 				<div>
 					<img num="11" src="img/11.png" class="img_mj_s" />
