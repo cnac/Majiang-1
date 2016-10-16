@@ -81,7 +81,7 @@
 			}
 			
 			.btn_ctl {
-				margin-top: 15px;
+				margin-top: 10px;
 			}
 		</style>
 
@@ -111,6 +111,7 @@
 				<img src="img/question.png" class="img_mj_q" />
 			</div>
 			<!--		<a class="ui-btn" id="btn_refresh"> 发牌</a>-->
+			<p style="color: white;margin-top: 3px;">在下方选择所有能胡的牌，都找出来才能正确哦。</p>
 			<div class="row pai_rel">
 				<div>
 					<img num="11" src="img/11.png" class="img_mj_s" />
@@ -188,7 +189,7 @@
 						<p>您已经听牌啦！赶快来找出所有能胡的牌吧! </p>
 						<p>1.胡牌规则：一个对子(AA)+N个三个连牌(ABC)或三个同样的牌(AAA). </p>
 						<p>2.有三次答错机会. </p>
-						<p>3.选择所有可能会胡的牌，点击胡牌提交结果.</p>
+						<p>3.选择所有可能会胡的牌，一定要选出所有能胡的牌才算正确哦，点击胡牌提交结果.</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
